@@ -28,3 +28,7 @@ img{
 .embed-responsive.embed-responsive-4by3 {
   padding-bottom: 75%;
 }
+.img-redondo{
+max-height: 300px;
+border-radius: 50%;
+}

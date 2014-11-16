@@ -28,10 +28,64 @@
 					<div class="ui-block-a"><a style="height:140px" href="#calculoIMC" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height:90px" src="img/btn-imc.png"><br>CALCULO IMC</a></div>
 					<div class="ui-block-b"><a style="height:140px" href="#calculoPesoIdeal" class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:90px" src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a></div>
 				</div>
+				<a  href="#estiveAqui" onClick="pessoas();" class="ui-shadow ui-btn ui-btn-b btn-home">EU ESTIVE AQUI</a>
 			</div>
 		
 			
 		</div>
+		
+		
+		<!-- Pagina EU ESTIVE AQUI -->
+		<div id="estiveAqui" class="login" data-role="page">
+			
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+	
+				<div data-role="header" data-theme="a">
+				
+				
+				
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">EU ESTIVE AQUI <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content" >
+				<h1> Quem Já esteve aqui <h1>
+					<div id="conteudoEstive"></div>
+				<hr>
+				<h2>Deixe sua marca aqui</h2>
+				<form id="formEstaraqui">
+					
+					<label for="foto" align="center">FOTO</label>
+					<input type="button" value="Capturar Imagem" onClick="capturarImagem()"> <br/>
+					<input type="button" data-theme="b" value="Pegar da Galeria" onClick="PegarImagem()"> <br/>
+					<input type="hidden" name="arquivo" value="" id="arquivo"> 
+					<input type="hidden"  value="0" id="validar"> 
+					<img id="htmlImagem"></img>
+				
+					<label for="nome" class="letra" align="center">NOME</label>
+					<input type="text" data-theme="c" name="nome" id="nome" value="" placeholder="SEU NOME">
+					
+					<label for="nome" class="letra" align="center">EMAIL</label>
+					<input type="email" data-theme="c" id="email"name="email" value="" placeholder="SEU EMAIL">
+				
+					<label for="nome" class="letra" align="center">CIDADE</label>
+					<input type="text" data-theme="c" id="cidade" name="cidade" value="" placeholder="SUA CIDADE">
+				
+					<input type="submit" value="Enviar">
+				</form>
+				</div>
+			
+			
+			</div>
+		</div>
+		
+		
+		
 		<!-- Pagina DICAS -->
 		<div id="dicas" class="login" data-role="page">
 			

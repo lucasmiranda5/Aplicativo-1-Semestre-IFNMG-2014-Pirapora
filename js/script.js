@@ -1,6 +1,160 @@
-const URLBASE  = "http://sizetech.com.br/app_if/";
+//const URLBASE  = "http://sizetech.com.br/app_if/";
+const URLBASE  = "http://localhost/aplicativo_if/";
+
+	function pessoas(){
+		var lista = '';
+	
+	$.post(URLBASE+'pessoas.php', {}, function(data) {
+				var x = 0;
+				var y = 1;
+					$.each( data, function( ) {
+					
+						if(y == 1){
+							lista += '<div class="ui-grid-a">';
+							lista += '<div class="ui-block-a">';
+							lista += '<center><img src="'+URLBASE+'fotos/'+data[x].foto+'" class="img-redondo"></center>';
+							lista += '<a class="ui-btn" href="#"><b>'+data[x].nome+'</b> - '+data[x].cidade+'</a>';
+							lista += '</div>';
+							
+						}else{
+							lista += '<div class="ui-block-b">';
+							lista += '<center><img src="'+URLBASE+'fotos/'+data[x].foto+'" class="img-redondo"></center>';
+							lista += '<a class="ui-btn ui-btn-b" data-theme="b" href="#"><b>'+data[x].nome+'</b> - '+data[x].cidade+'</a>';
+							lista += '</div>';
+						}
+						if(y == 2){
+							y = 0;
+							lista += '</div>';
+							
+						}
+						y++;
+						
+							
+							
+					
+						x++;
+					});
+					if(y == 2){
+							lista += '</div>';
+							
+						}
+					$('#conteudoEstive').html(lista);
+		}, 'json');
+	
+	}
+ function capturarImagem(){
+	$('#validar').val(1);
+      navigator.camera.getPicture(uploadPhoto, function(message) {
+			$('#validar').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.CAMERA,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function PegarImagem(){
+	$('#validar').val(1);
+      navigator.camera.getPicture(uploadPhoto, function(message) {
+			$('#validar').val(0);
+		},{
+			quality: 50, 
+			destinationType: navigator.camera.DestinationType.FILE_URI,
+			sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY,
+			correctOrientation:true,
+			AllowEdit: true
+		}
+            );
+            }
+ function uploadPhoto(imageURI) {
+			$('#htmlImagem').attr('src',imageURI);
+			$('#validar').val(1);
+            var options = new FileUploadOptions();
+            options.fileKey="file";
+            options.fileName=imageURI.substr(imageURI.lastIndexOf('/')+1);
+            options.mimeType="image/jpeg";
+            var params = new Object();
+            params.value1 = "test";
+            params.value2 = "param";
+            options.params = params;
+            options.chunkedMode = false;
+ 
+            var ft = new FileTransfer();
+            ft.upload(imageURI, URLBASE+"upload.php", win, fail, options);
+        }
+ 
+        function win(r) {
+			$("#arquivo").val(r.response);
+            $('#validar').val(0);
+        }
+ 
+        function fail(error) {
+			$('#htmlImagem').attr('src','');
+           $('#validar').val(0);
+        }
+
 
 $(function(){
+
+formEstaraqui
+
+$('#formEstaraqui').submit(function(){
+	var d = 1;
+	
+		if($('#validar').val == 1){
+			alert('Por favor aguarde estamos fazendo upload da sua linda foto');
+		
+		}else{
+		
+			if($('#arquivo').val() == ''){
+				alert("Por Favor coloque uma foto");
+				d = 0;
+			}
+			
+			if($('#email').val() == ''){
+				alert("Por Favor coloque seu email");
+				d = 0;
+			}
+			
+			if($('#nome').val() == ''){
+				alert("Por Favor coloque seu nome");
+				d = 0;
+			}
+			
+			if($('#cidade').val() == ''){
+				alert("Por Favor coloque sua cidade");
+				d = 0;
+			}
+			
+			if(d == 1){
+					$.post(URLBASE+'gravarPessoas.php', $(this).serialize(), function(data) {
+							var x = 0;
+								$.each( data, function( ) {
+								
+									if(data.retorno){
+										alert("Obrigador por estar conosco =D");
+										pessoas();
+									
+									}else{
+										alert("Você já estar cadastrado =D");
+									}
+								});
+								
+					}, 'json');
+			
+			}
+			
+			
+		}
+	
+		
+		
+		return false;
+	})
+
+
 	$('#calcularimc').submit(function(){
 		var altura 	= $('#altura_imc').val();
 		var peso 	= $('#peso_imc').val();
@@ -182,4 +336,6 @@ function abrirVideo(id){
     function onMenuKeyDown() {
 		$( ".selector" ).panel( "open" );
     }
+
+
 
