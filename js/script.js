@@ -86,6 +86,7 @@ const URLBASE  = "http://localhost/aplicativo_if/";
         }
  
         function win(r) {
+			alert(r.response);
 			$("#arquivo").val(r.response);
             $('#validar').val(0);
         }
