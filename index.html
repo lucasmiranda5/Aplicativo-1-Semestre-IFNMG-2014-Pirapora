@@ -1,0 +1,195 @@
+	<html>
+	<head>
+		<meta charset="UTF-8" /> 
+
+		<title>IF</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/Saude-Forma.css" />
+		<link rel="stylesheet" href="css/layout.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.3.min.css" />
+		<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.3.min.js"></script>
+		<script src="phonegap.js"></script>
+		
+	</head>
+	<body onload="onLoad()">
+	<!-- Pagina HOME -->
+		<div id="home" class="login" data-role="page">
+			<div data-role="content" >
+				<center><img src="img/logo.png"></center>
+				<h3 align="center">Bem Vindo! o que você procura ?</h3>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a style="height:140px" href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:90px"  src="img/btn-dicas.png"><br>DICAS</a></div>
+					<div class="ui-block-b"><a style="height:140px" href="#videos" onClick="todosVideos();" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height:90px" src="img/btn-exercicios.png"><br>EXERCICIOS</a></div>
+				</div>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><a style="height:140px" href="#calculoIMC" class="ui-shadow ui-btn ui-btn-b btn-home"><img style="max-height:90px" src="img/btn-imc.png"><br>CALCULO IMC</a></div>
+					<div class="ui-block-b"><a style="height:140px" href="#calculoPesoIdeal" class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:90px" src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a></div>
+				</div>
+			</div>
+		
+			
+		</div>
+		<!-- Pagina DICAS -->
+		<div id="dicas" class="login" data-role="page">
+			
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+	
+				<div data-role="header" data-theme="a">
+				
+				
+				
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">DICAS <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content">
+			<ul data-role="listview" id="dicasLista" data-theme="c" data-filter="true" data-filter-placeholder="O que procura?" >
+
+			</ul>
+			</div>
+		</div>
+		<!-- Pagina VIDEOS -->
+		<div id="videos" class="login" data-role="page">
+			
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+	
+				<div data-role="header" data-theme="a">
+				
+				
+				
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">VIDEOS <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content">
+			<ul data-role="listview" id="videoLista" data-theme="c" data-filter="true" data-filter-placeholder="O que procura?" >
+
+			</ul>
+			</div>
+		</div>
+		
+		<!-- Pagina DICA INDIVIDUAL -->
+		<div id="dica" class="login" data-role="page">
+			
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+	
+				<div data-role="header" data-theme="a">
+				
+				
+				
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">DICAS <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content">
+				<a href="#" class="ui-btn ui-btn-b"><h2 id="titutloDica"></h2></a>
+				<h5 id="subDica"></h5>
+				<div id="textoDica"></div>
+				<div><b>Fonte:</b> <span id="fonteDica"></span></div>
+			</div>
+		</div>
+		<!-- Pagina VIDEO INDIVIDUAL -->
+		<div id="video" class="login" data-role="page">
+			
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+	
+				<div data-role="header" data-theme="a">
+				
+				
+				
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">DICAS <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content">
+				<a href="#" class="ui-btn ui-btn-b"><h2 id="titutloVideo"></h2></a>
+				<div id="videoCode"></div>
+			</div>
+		</div>
+		
+		
+		<!-- Pagina CALCULO IMC -->
+		<div id="calculoIMC" data-role="page">
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+			<div data-role="header" data-theme="b">
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">CALCULO IMC <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content">
+			<form id="calcularimc"><br><br>
+				<label for="nome" class="letra" align="center">SEU PESO (KG)</label>
+				<input type="text" data-theme="c" id="peso_imc" value="" placeholder="SEU PESO (KG)">
+				
+				<label for="nome" class="letra" align="center"	>SUA ALTURA (M)</label>
+				<input type="text" data-theme="c" id="altura_imc" value="" placeholder="SUA ALTURA (M)">
+				<input type="submit" value="CALCULAR">
+			</form>
+				<h2 id="resultadoIMC"></h2>
+						
+			</div>
+			
+		</div>
+		<!-- Pagina CALCULO PESO IDEAL -->
+		<div id="calculoPesoIdeal" data-role="page">
+		<div data-role="panel" id="Painelmenu" data-position="right" data-display="push" data-theme="a">
+			<h1>MENU</h1>
+			<a href="#dicas" onClick="todasDicas();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-dicas.png"><br>DICAS</a>
+			<a href="#videos" onClick="todosVideos();"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-exercicios.png"><br>EXERCICIOS</a>
+			<a href="#calculoIMC"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-imc.png"><br>CALCULO IMC</a>
+			<a href="#calculoPesoIdeal"  class="ui-shadow ui-btn ui-btn-a btn-home"><img style="max-height:50px"  src="img/btn-peso.png"><br>CALCULO PESO IDEAL</a>
+			
+		</div>
+			<div data-role="header" data-theme="b">
+				<p class="txthead" align="left"><img src="img/favicon.png" style="margin: -7px 14px -18px 5px;">CALCULO DE PESO IDEAL <a  href="#Painelmenu"><img src="img/menu.png" align="right"></a></p>
+			</div>
+			<div data-role="content">
+			<form id="calcularpesoideal"><br><br>
+				<label for="nome" class="letra" align="center">SEU SEXO</label>
+				<select data-theme="c" id="sexo_peso">
+					<option value="m">Mulher</option>
+					<option value="h">Homem</option>
+				</select>
+				
+				<label for="nome" class="letra" align="center"	>SUA ALTURA (M)</label>
+				<input type="text" data-theme="c" id="altura_peso" value="" placeholder="SUA ALTURA (M)">
+				<input type="submit" value="CALCULAR">
+			</form>
+				<h2 id="resultadoPeso"></h2>
+						
+			</div>
+		</div>
+		
+		
+		<script src="js/script.js"></script>
+	
+	</body>
+</html>
