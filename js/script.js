@@ -69,7 +69,6 @@ const URLBASE  = "http://sizetech.com.br/app_if/";
             );
             }
  function uploadPhoto(imageURI) {
-			alert(1);
 			$('#htmlImagem').attr('src',imageURI);
 			$('#validar').val(1);
             var options = new FileUploadOptions();
@@ -81,14 +80,11 @@ const URLBASE  = "http://sizetech.com.br/app_if/";
             params.value2 = "param";
             options.params = params;
             options.chunkedMode = false;
-			alert(2);
             var ft = new FileTransfer();
             ft.upload(imageURI, URLBASE+"upload.php", win, fail, options);
-			alert(3);
         }
  
         function win(r) {
-			alert(r.response);
 			$("#arquivo").val(r.response);
             $('#validar').val(0);
         }
@@ -138,7 +134,13 @@ $('#formEstaraqui').submit(function(){
 								
 									if(data.retorno){
 										alert("Obrigador por estar conosco =D");
+										$('#arquivo').val('');
+										$('#email').val('');
+										$('#nome').val('');
+										$('#cidade').val('');
+										$('#htmlImagem').attr('src','');
 										pessoas();
+										 $('html,body').animate({scrollTop: 0},'slow');	
 									
 									}else{
 										alert("Você já estar cadastrado =D");
