@@ -185,7 +185,7 @@ $('#formEstaraqui').submit(function(){
 				var tipo = "com Obesidade II (severa)";
 			else
 				var tipo = "com Obesidade III (mórbida)";
-			$('#resultadoIMC').html("Seu IMC é: "+valor+" você estar "+tipo);
+			$('#resultadoIMC').html("Seu IMC é: "+valor.toFixed(2)+" você estar "+tipo);
 		}
 		return false;
 	})
@@ -206,7 +206,7 @@ $('#formEstaraqui').submit(function(){
 			}else{
 				var PI = (altura - 100) - ((altura - 150)/4);
 			}
-			$('#resultadoPeso').html("Seu Peso ideal é: "+PI);
+			$('#resultadoPeso').html("Seu Peso ideal é: "+PI.toFixed(2));
 			
 			
 		}
